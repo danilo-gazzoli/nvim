@@ -1,28 +1,31 @@
 return {
-  'shaunsingh/nord.nvim',
-  lazy = false,
-  priority = 1000,
-  config = function()
-    -- Example config in lua
-    vim.g.nord_contrast = true
-    vim.g.nord_borders = false
-    vim.g.nord_disable_background = true
-    vim.g.nord_italic = false
-    vim.g.nord_uniform_diff_background = true
-    vim.g.nord_bold = false
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = function(_, opts)
+      opts.transparent = true
+      opts.italic_comments = true
+      opts.borderless_telescope = false
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "cyberdream",
+    },
+  },
 
-    -- Load the colorscheme
-    require('nord').set()
-
-    -- Toggle background transparency
-    local bg_transparent = true
-
-    local toggle_transparency = function()
-      bg_transparent = not bg_transparent
-      vim.g.nord_disable_background = bg_transparent
-      vim.cmd [[colorscheme nord]]
-    end
-
-    vim.keymap.set('n', '<leader>bg', toggle_transparency, { noremap = true, silent = true })
-  end,
+  -- modicator (auto color line number based on vim mode)
+  {
+    "mawkler/modicator.nvim",
+    dependencies = "scottmckendry/cyberdream.nvim",
+    init = function()
+      -- These are required for Modicator to work
+      vim.o.cursorline = false
+      vim.o.number = true
+      vim.o.termguicolors = true
+    end,
+    opts = {},
+  },
 }
