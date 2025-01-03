@@ -20,5 +20,10 @@ require('lazy').setup({
     require 'plugins.gitsigns',
     require 'plugins.bufferline',
     require 'plugins.lualine',
-    require 'plugins.lsp',
+    require 'plugins.snacks',
+    require 'plugins.alpha',
+    require 'plugins.comment',
+    require 'plugins.indent-blankline',
+    require 'plugins.misc',
+    require 'plugins.none-ls',
 })
