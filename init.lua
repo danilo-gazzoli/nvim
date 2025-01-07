@@ -30,4 +30,5 @@ require("lazy").setup({
 	require("plugins.none-ls"),
 	require("plugins.lsp"),
 	require("plugins.nvim-cmp"),
+	require("plugins.persistence"),
 })
