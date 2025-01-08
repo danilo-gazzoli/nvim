@@ -51,4 +51,6 @@ require("lazy").setup({
 	require("plugins.lsp"),
 	require("plugins.nvim-cmp"),
 	require("plugins.persistence"),
+	require("plugins.undotree"),
+	require("plugins.cmp-git"),
 })
