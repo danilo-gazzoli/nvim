@@ -53,4 +53,5 @@ require("lazy").setup({
 	require("plugins.persistence"),
 	require("plugins.undotree"),
 	require("plugins.cmp-git"),
+	require("plugins.autotag"),
 })
