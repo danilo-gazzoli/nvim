@@ -54,4 +54,6 @@ require("lazy").setup({
 	require("plugins.undotree"),
 	require("plugins.cmp-git"),
 	require("plugins.autotag"),
+	require("plugins.live-server"),
+	require("plugins.bracey"),
 })
