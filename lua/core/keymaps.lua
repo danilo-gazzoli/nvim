@@ -75,3 +75,15 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous dia
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- vim test
+vim.api.nvim_set_keymap("n", "<leader>tt", ":TestNearest<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tf", ":TestFile<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ts", ":TestSuite<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
+
+-- vim rails
+vim.api.nvim_set_keymap("n", "<leader>rs", ":!rails server<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>rg", ":!rails generate ", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("n", "<leader>rc", ":!rails console<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>rm", ":!rails db:migrate<CR>", { noremap = true, silent = true })

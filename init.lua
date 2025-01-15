@@ -56,4 +56,8 @@ require("lazy").setup({
 	require("plugins.autotag"),
 	require("plugins.live-server"),
 	require("plugins.bracey"),
+	require("plugins.vim-rails"),
+	require("plugins.vim-test"),
+	require("plugins.neomake"),
+	require("plugins.toggleterm"),
 })
