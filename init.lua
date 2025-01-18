@@ -60,4 +60,5 @@ require("lazy").setup({
 	require("plugins.vim-test"),
 	require("plugins.neomake"),
 	require("plugins.toggleterm"),
+	require("plugins.rspec"),
 })
