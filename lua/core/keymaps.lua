@@ -87,3 +87,10 @@ vim.api.nvim_set_keymap("n", "<leader>rs", ":!rails server<CR>", { noremap = tru
 vim.api.nvim_set_keymap("n", "<leader>rg", ":!rails generate ", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("n", "<leader>rc", ":!rails console<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>rm", ":!rails db:migrate<CR>", { noremap = true, silent = true })
+
+-- vim rspec
+vim.keymap.set("n", "<leader>rn", ":RSpecNearest<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>rf", ":RSpecCurrentFile<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>rr", ":RSpecRerun<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>rF", ":RSpecOnlyFailures<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", { noremap = true, silent = true })
