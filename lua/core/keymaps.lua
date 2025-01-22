@@ -94,3 +94,7 @@ vim.keymap.set("n", "<leader>rf", ":RSpecCurrentFile<CR>", { noremap = true, sil
 vim.keymap.set("n", "<leader>rr", ":RSpecRerun<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>rF", ":RSpecOnlyFailures<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", { noremap = true, silent = true })
+
+-- undotree
+vim.keymap.set("n", "<leader>uo", require("undotree").open, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>uc", require("undotree").close, { noremap = true, silent = true })
