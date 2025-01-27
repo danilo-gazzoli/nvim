@@ -61,4 +61,5 @@ require("lazy").setup({
 	require("plugins.neomake"),
 	require("plugins.toggleterm"),
 	require("plugins.rspec"),
+	require("plugins.null-ls"),
 })
