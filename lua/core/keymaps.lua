@@ -94,3 +94,11 @@ vim.keymap.set("n", "<leader>rf", ":RSpecCurrentFile<CR>", { noremap = true, sil
 vim.keymap.set("n", "<leader>rr", ":RSpecRerun<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>rF", ":RSpecOnlyFailures<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>rs", ":RSpecShowLastResult<CR>", { noremap = true, silent = true })
+
+-- Scroll and center on screen
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts) -- Scroll down and center
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts) -- Scroll up and center
+
+-- Search and center results
+vim.keymap.set("n", "n", "nzzzv", opts) -- Go to next match and center
+vim.keymap.set("n", "N", "Nzzzv", opts) -- Go to previous match and center
