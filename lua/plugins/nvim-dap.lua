@@ -78,6 +78,29 @@ return {
 					cwd = vim.fn.getcwd(),
 				},
 			}
+
+			dap.adapters.ruby = {
+				type = "executable",
+				command = "bundle",
+				args = { "exec", "readapt", "serve" },
+			}
+
+			dap.configurations.ruby = {
+				{
+					type = "ruby",
+					request = "launch",
+					name = "Debug Ruby script",
+					program = "${file}",
+				},
+				{
+					type = "ruby",
+					request = "attach",
+					name = "Attach to Ruby process",
+					remoteHost = "127.0.0.1",
+					remotePort = 1234,
+					remoteWorkspace = vim.fn.getcwd(),
+				},
+			}
 		end,
 	},
 }
