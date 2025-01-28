@@ -27,6 +27,30 @@ return {
 			require("nvim-dap-virtual-text").setup()
 
 			require("telescope").load_extension("dap")
+
+			-- Configuração do adaptador e configuração do Python
+			dap.adapters.python = {
+				type = "executable",
+				command = "/usr/bin/python", -- Substitua pelo caminho correto do interpretador Python
+				args = { "-m", "debugpy.adapter" },
+			}
+
+			dap.configurations.python = {
+				{
+					type = "python",
+					request = "launch",
+					name = "Launch file",
+					program = "${file}", -- Executa o arquivo Python aberto no buffer
+					pythonPath = function()
+						-- Retorna o interpretador Python padrão ou configurado
+						local venv_path = os.getenv("VIRTUAL_ENV")
+						if venv_path then
+							return venv_path .. "/bin/python"
+						end
+						return "/usr/bin/python" -- Substitua conforme necessário
+					end,
+				},
+			}
 		end,
 	},
 }
