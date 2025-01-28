@@ -101,6 +101,36 @@ return {
 					remoteWorkspace = vim.fn.getcwd(),
 				},
 			}
+
+			dap.adapters.lldb = {
+				type = "executable",
+				command = "lldb-vscode", -- Verifique se o LLDB está instalado e disponível no PATH
+				name = "lldb",
+			}
+
+			dap.configurations.c = {
+				{
+					name = "Launch file",
+					type = "lldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = false,
+					args = {},
+					runInTerminal = false,
+				},
+				{
+					name = "Attach to process",
+					type = "lldb",
+					request = "attach",
+					pid = require("dap.utils").pick_process,
+					args = {},
+				},
+			}
+
+			dap.configurations.cpp = dap.configurations.c
 		end,
 	},
 }
