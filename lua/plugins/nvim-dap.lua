@@ -51,6 +51,33 @@ return {
 					end,
 				},
 			}
+			dap.adapters.node2 = {
+				type = "executable",
+				command = "node",
+				args = {
+					os.getenv("HOME") .. "/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js",
+				},
+			}
+
+			dap.configurations.typescript = {
+				{
+					type = "node2",
+					request = "launch",
+					name = "Launch file",
+					program = "${file}", -- Executa o arquivo TypeScript aberto no buffer
+					cwd = vim.fn.getcwd(),
+					sourceMaps = true,
+					protocol = "inspector",
+					console = "integratedTerminal",
+				},
+				{
+					type = "node2",
+					request = "attach",
+					name = "Attach to process",
+					processId = require("dap.utils").pick_process,
+					cwd = vim.fn.getcwd(),
+				},
+			}
 		end,
 	},
 }
