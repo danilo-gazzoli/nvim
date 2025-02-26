@@ -1,3 +1,4 @@
+vim.g.lazy_picker = "telescope"
 -- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
