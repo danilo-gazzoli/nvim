@@ -10,7 +10,7 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 local opts = { noremap = true, silent = true }
 
 -- save file
-vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
+vim.keymap.set("n", "<C-s>", "<cmd> w! <CR>", opts)
 
 -- save file without auto-formatting
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
@@ -113,3 +113,10 @@ vim.keymap.set("n", "<Leader>b", ":lua require'dap'.toggle_breakpoint()<CR>", op
 vim.keymap.set("n", "<Leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 vim.keymap.set("n", "<Leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
 vim.keymap.set("n", "<Leader>dl", ":lua require'dap'.run_last()<CR>", opts)
+
+-- python keymaps
+vim.keymap.set("n", "<leader>pr", ":w<CR>:!python3 %<CR>", {
+  noremap = true,
+  silent = true,
+  desc = "Executa arquivo Python",
+})
