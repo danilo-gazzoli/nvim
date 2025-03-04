@@ -18,6 +18,9 @@ return {
         'shfmt', -- Shell formatter
         'checkmake', -- linter for Makefiles
         'ruff', -- Python linter and formatter
+        'erb_lint',
+        'reek',
+        'rubocop',
       },
       automatic_installation = true,
     }
