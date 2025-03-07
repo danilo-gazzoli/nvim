@@ -158,7 +158,7 @@ return {
 				},
 
 				-- java
-				-- jdlts = {},
+				jdtls = {},
 
 				-- html
 				html = { filetypes = { "html", "twig", "hbs", "htmldjango" } },
