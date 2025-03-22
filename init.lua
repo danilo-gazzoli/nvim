@@ -41,6 +41,7 @@ require("lazy").setup({
 		},
 		defaults = { lazy = true },
 	},
+	require("plugins.avante"),
 	require("plugins.neotree"),
 	require("plugins.colortheme"),
 	require("plugins.treesitter"),
