@@ -1,3 +1,16 @@
+-- wsl clipboard
+if vim.fn.has("wsl") == 1 then
+  vim.opt.clipboard = "unnamedplus"
+  vim.g.clipboard = {
+    name = "wsl clipboard",
+    copy =  { ["+"] = { "clip.exe" }, ["*"] = { "clip.exe" } },
+    paste = { ["+"] = { "powershell.exe", "-NoProfile", "-Command", "Get-Clipboard" },
+              ["*"] = { "powershell.exe", "-NoProfile", "-Command", "Get-Clipboard" } },
+    cache_enabled = false,
+  }
+end
+
+
 vim.o.smartindent = true
 vim.o.autoindent = true
 vim.wo.number = true -- Make line numbers default (default: false)
