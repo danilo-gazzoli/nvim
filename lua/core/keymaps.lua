@@ -115,7 +115,7 @@ vim.keymap.set("n", "<Leader>dr", ":lua require'dap'.repl.open()<CR>", opts)
 vim.keymap.set("n", "<Leader>dl", ":lua require'dap'.run_last()<CR>", opts)
 
 -- python keymaps
-vim.keymap.set("n", "<leader>pr", ":w<CR>:!python3 %<CR>", {
+vim.keymap.set("n", "<leader>pr", ":w<CR>:!python %<CR>", {
   noremap = true,
   silent = true,
   desc = "Executa arquivo Python",
