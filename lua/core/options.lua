@@ -1,3 +1,5 @@
+vim.g.copilot_node_command = vim.fn.expand("/home/nilo/.asdf/installs/nodejs/25.6.1/bin/node")
+
 -- wsl clipboard
 if vim.fn.has("wsl") == 1 then
   vim.opt.clipboard = "unnamedplus"

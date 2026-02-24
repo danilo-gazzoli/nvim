@@ -38,6 +38,7 @@ require("lazy").setup({
 			{ import = "lazyvim.plugins.test.core" },
 			{ import = "lazyvim.plugins.coding.yanky" },
 			{ import = "lazyvim.plugins.editor.fzf" },
+			{ import = "lazyvim.plugins.extras.coding.copilot"},
 		},
 		defaults = { lazy = true },
 	},
@@ -70,4 +71,5 @@ require("lazy").setup({
 	require("plugins.rspec"),
 	require("plugins.null-ls"),
 	require("plugins.nvim-dap"),
+	require("plugins.copilot"),
 })
