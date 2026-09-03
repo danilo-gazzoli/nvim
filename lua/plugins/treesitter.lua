@@ -1,28 +1,11 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-        ensure_installed = {
-            'lua',
-            'ruby',
-            'python',
-            'vimdoc',
-            'vim',
-            'dockerfile',
-            'json',
-            'gitignore',
-            'bash',
-            'javascript',
-            'html',
-            'css',
-            'sql',
-        },
-        auto_install = true,
-        highlight = {
-            enable = true,
-        },
-        indent = { enable = true },
-      }
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  build = ":TSUpdate",
+  config = function()
+    local treesitter = require("nvim-treesitter")
+    treesitter.setup({
+      install_dir = vim.fn.stdpath("data") .. "/site",
+    })
+  end,
 }

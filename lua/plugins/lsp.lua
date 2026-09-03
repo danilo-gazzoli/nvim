@@ -151,10 +151,21 @@ return {
 						local server = servers[server_name] or {}
 						-- Atualiza as capabilities para o servidor
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
+						vim.lsp.config(server_name, server)
+					vim.lsp.enable(server_name)
 					end,
 				},
 			})
+
+			-- CONFIGURAÇÃO MANUAL DO PROLOG (Ignora o Mason e usa o swipl do seu Arch Linux)
+			vim.lsp.config("prolog_ls", {
+				cmd = { "swipl", "-g", "use_module(library(lsp_server)).", "-g", "lsp_server:main", "-t", "halt", "--", "stdio" },
+				filetypes = { "prolog" },
+				root_markers = { "pack.pl", ".git" },
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("prolog_ls")
 		end,
 	},
 }
+

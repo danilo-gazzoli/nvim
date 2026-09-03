@@ -2,6 +2,7 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
+            "nvim-neotest/nvim-nio", -- Exigência do nvim-dap-ui atual
 			"rcarriga/nvim-dap-ui",     -- UI para o nvim-dap
 			"theHamsta/nvim-dap-virtual-text", -- Variáveis no texto
 			"nvim-telescope/telescope-dap.nvim", -- Integração com Telescope

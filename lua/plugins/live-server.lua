@@ -1,5 +1,7 @@
 return {
-	"barrett-ruth/live-server.nvim",
-	config = true,
-	build = "sudo npm install -g live-server",
+  "barrett-ruth/live-server.nvim",
+  init = function()
+    vim.g.live_server = {}
+  end,
+  build = "npm install -g live-server",
 }

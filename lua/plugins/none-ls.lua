@@ -26,6 +26,7 @@ return {
     }
 
     local sources = {
+      require "none-ls.diagnostics.eslint",
       diagnostics.checkmake,
       formatting.prettier.with { filetypes = { 'html', 'json', 'yaml', 'markdown' } },
       formatting.stylua,

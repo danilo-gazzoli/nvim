@@ -1,4 +1,9 @@
 vim.g.copilot_node_command = vim.fn.expand("/home/nilo/.asdf/installs/nodejs/25.6.1/bin/node")
+local asdf_node_bin = "/home/nilo/.asdf/installs/nodejs/25.6.1/bin"
+if vim.fn.isdirectory(asdf_node_bin) == 1 then
+  vim.env.PATH = asdf_node_bin .. ":" .. vim.env.PATH
+end
+
 
 -- wsl clipboard
 if vim.fn.has("wsl") == 1 then
@@ -6,8 +11,8 @@ if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
     name = "wsl clipboard",
     copy =  { ["+"] = { "clip.exe" }, ["*"] = { "clip.exe" } },
-    paste = { ["+"] = { "powershell.exe", "-NoProfile", "-Command", "Get-Clipboard" },
-              ["*"] = { "powershell.exe", "-NoProfile", "-Command", "Get-Clipboard" } },
+    paste = { ["+"] = { "powershell.exe", "-NoProfile", "-Command", "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new(); [Console]::Out.Write((Get-Clipboard -Raw))" },
+              ["*"] = { "powershell.exe", "-NoProfile", "-Command", "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new(); [Console]::Out.Write((Get-Clipboard -Raw))" } },
     cache_enabled = false,
   }
 end
@@ -60,3 +65,14 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- Don't insert the current comm
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- Separate Vim plugins from Neovim in case Vim still in use (default: includes this path if Vim is installed)
 vim.g["test#strategy"] = "neovim"
 vim.g["test#ruby#use_spring"] = 1
+
+-- Prolog source extensions are unambiguous. The `.pl` override is limited to
+-- the course workspace, preserving Perl detection everywhere else.
+vim.filetype.add({ extension = { pro = "prolog", prolog = "prolog" } })
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("prolog-course-filetype", { clear = true }),
+  pattern = "/home/nilo/program/ia-2026_2/prolog/*.pl",
+  callback = function(args)
+    vim.bo[args.buf].filetype = "prolog"
+  end,
+})
